@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class POOmenu10 {
 
+    static int contador = 0;
+
     public static void main(String[] args) {
         // 
         Scanner entrada = new Scanner(System.in);
         int op = 0;
+        Profesor misMaestros[] = new Profesor[10];
+
         try {
             do {
                 System.out.println("    1. Crear Profesor");
@@ -15,12 +19,21 @@ public class POOmenu10 {
                 System.out.println("    3. Ver Profesor");
                 System.out.println("    4. Actulizar Datos del Profesor");
                 System.out.println("    5. Salir");
-                System.out.println("");
+                System.out.println("Ingrese el Numero de Opcion");
 
                 op = entrada.nextInt();
                 switch (op) {
                     case 1:
-                        System.out.println("-------------Nuevo Profesor-------------");
+                        Scanner teclado = new Scanner(System.in);
+                        System.out.println("-------------NUEVO_PROFESOR-------------");
+                        System.out.println("______Ingrese el Nombre del Profesor____________");
+                        String Nombre = entrada.nextLine();
+                        System.out.println("______Ingrese La Especialidad Del Profesor_______");
+                        String Materia = entrada.nextLine();
+                        misMaestros[contador] = new Profesor[Nombre
+                        ,Materia
+                        ];
+                      contador++;
                         break;
 
                     case 2:
