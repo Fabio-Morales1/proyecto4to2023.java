@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class POOmenu10 {
 
+    static Profesor misMaestros[] = new Profesor[10];
     static int contador = 0;
 
     public static void main(String[] args) {
         // 
         Scanner entrada = new Scanner(System.in);
         int op = 0;
-        Profesor misMaestros[] = new Profesor[10];
 
         try {
             do {
@@ -24,24 +24,17 @@ public class POOmenu10 {
                 op = entrada.nextInt();
                 switch (op) {
                     case 1:
-                        Scanner teclado = new Scanner(System.in);
-                        System.out.println("-------------NUEVO_PROFESOR-------------");
-                        System.out.println("______Ingrese el Nombre del Profesor____________");
-                        String Nombre = entrada.nextLine();
-                        System.out.println("______Ingrese La Especialidad Del Profesor_______");
-                        String Materia = entrada.nextLine();
-                        misMaestros[contador] = new Profesor[Nombre
-                        ,Materia
-                        ];
-                      contador++;
+                        crearProfesores();
                         break;
 
                     case 2:
                         System.out.println("------------Los_Datos_Son----------------");
+                        verTodos();
                         break;
 
                     case 3:
                         System.out.println("");
+
                         break;
 
                     case 4:
@@ -59,6 +52,29 @@ public class POOmenu10 {
         } catch (Exception e) {
             System.out.println("Palabra Incorrecta");
         }
+    }
+
+    static public void crearProfesores() {
+
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("-------------NUEVO_PROFESOR-------------");
+        System.out.println("______Ingrese el Nombre del Profesor____________");
+        String Nombre = teclado.nextLine();
+        System.out.println("______Ingrese La Especialidad Del Profesor_______");
+        String materia = teclado.nextLine();
+        misMaestros[contador] = new Profesor(Nombre, materia);
+        System.out.println("_______________Datos Almacenados_____________");
+        contador++;
+    }
+
+    static public void verTodos() {
+
+        for (int i = 0; i < contador; i++) {
+            System.out.println("Nombre: " + misMaestros[i].verNombre());
+            System.out.println("Nombre: " + misMaestros[i].verMateria());
+            System.out.println("#############################################");
+        }
+
     }
 
 }
